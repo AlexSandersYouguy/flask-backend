@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="card shadow-sm p-4">
+  <h3 class="mb-3">Доступные отчёты</h3>
+
+  {% if reports %}
+    <ul class="list-group">
+      {% for r in reports %}
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          <span>{{ r.name }}</span>
+          <a class="btn btn-primary btn-sm" href="{{ url_for('reports.view_report', code=r.code) }}">Открыть</a>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p class="text-muted">Нет доступных отчётов.</p>
+  {% endif %}
+
+  {% if session.role == 'admin' %}
+    <a href="{{ url_for('reports.create_report') }}" class="btn btn-success mt-3">
+      + Создать новый отчёт
+    </a>
+  {% endif %}
+</div>
+
+{% endblock %}

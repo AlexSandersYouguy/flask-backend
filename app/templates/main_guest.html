@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}Главная{% endblock %}
+
+{% block content %}
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-6">
+            <div class="card border-0 shadow-lg">
+                <div class="card-body text-center p-5">
+                    <i class="bi bi-lock display-1 text-muted mb-4"></i>
+                    <h2 class="fw-bold mb-3">Доступ ограничен</h2>
+                    <p class="lead text-muted mb-4">
+                        Для работы с системой мониторинга и аналитики<br>
+                        необходима авторизация
+                    </p>
+                    
+                    <div class="alert alert-info border-0 bg-light">
+                        <i class="bi bi-info-circle me-2"></i>
+                        Система предоставляет доступ к:
+                        <ul class="text-start small mt-2 mb-0">
+                            <li>Мониторингу базы данных в реальном времени</li>
+                            <li>Аналитическим отчетам и статистике</li>
+                            <li>Управлению производственными данными</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="row justify-content-center mt-4">
+                        <div class="col-md-6 mb-2">
+                            <a href="{{ url_for('auth.login') }}" class="btn btn-primary btn-lg w-100">
+                                <i class="bi bi-box-arrow-in-right me-2"></i>Войти
+                            </a>
+                        </div>
+                        <div class="col-md-6 mb-2">
+                            <a href="{{ url_for('auth.register') }}" class="btn btn-outline-primary btn-lg w-100">
+                                <i class="bi bi-person-plus me-2"></i>Регистрация
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
